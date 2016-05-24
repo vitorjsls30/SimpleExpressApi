@@ -1,0 +1,102 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "cozinha"
+        },
+        {
+            "id": 2,
+            "name": "camaebanho"
+        },
+        {
+            "id": 3,
+            "name": "saladeestar"
+        },
+        {
+            "id": 4,
+            "name": "eletronicos"
+        },
+        {
+            "id": 5,
+            "name": "viagens"
+        },
+        {
+            "id": 6,
+            "name": "celularestelefonia"
+        }
+    ],
+    "photos": [
+        {
+            "id": 1,
+            "categoryId": 1,
+            "photo": "colher.jpg"
+        },
+        {
+            "id": 2,
+            "categoryId": 2,
+            "photo": "colchadecasal;jpg"
+        },
+        {
+            "id": 3,
+            "categoryId": 3,
+            "photo": "sofa2lugares.jpg"
+        },
+        {
+            "id": 4,
+            "categoryId": 3,
+            "photo": "sofa3lugares.jpg"
+        },
+        {
+            "id": 5,
+            "categoryId": 5,
+            "photo": "china.jpg"
+        },
+        {
+            "id": 6,
+            "categoryId": 5,
+            "photo": "china2.jpg"
+        },
+        {
+            "id": 7,
+            "categoryId": 5,
+            "photo": "cinha3.jpg"
+        },
+        {
+            "id": 8,
+            "categoryId": 5,
+            "photo": "newzeland.jpg"
+        },
+        {
+            "id": 9,
+            "categoryId": 5,
+            "photo": "newzeland2.jpg"
+        },
+        {
+            "id": 10,
+            "categoryId": 5,
+            "photo": "newzeland3.jpg"
+        }
+    ],
+    "texts" : [
+        {
+            "id": 1,
+            "categoryId": 1,
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a orci at tortor gravida rutrum at in nibh."
+        },
+        {
+            "id": 2,
+            "categoryId": 1,
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a orci at tortor gravida rutrum at in nibh."
+        },
+        {
+            "id": 3,
+            "categoryId": 3,
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a orci at tortor gravida rutrum at in nibh."
+        },
+        {
+            "id": 4,
+            "categoryId": 6,
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a orci at tortor gravida rutrum at in nibh."
+        }
+    ]
+}
