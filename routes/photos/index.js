@@ -4,6 +4,6 @@ const single = require('./single');
 
 photos.get('/', all);
 
-photos.use('/:photoId', single);
+photos.get('/:photoId', single);
 
 module.exports = photos;
