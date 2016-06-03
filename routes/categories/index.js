@@ -3,6 +3,9 @@ const all = require('./all');
 const single = require('./single');
 const photos = require('./photos');
 const texts = require('./texts');
+const findObject = require('../../utils/findObject');
+
+categories.param('categoryId', findObject('category'));
 
 categories.get('/', all);
 
