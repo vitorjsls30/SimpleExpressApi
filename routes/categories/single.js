@@ -1,8 +1,14 @@
-const data = require('../../data.json');
-
 module.exports = (req, res) => {
     const categoryId = req.params.categoryId * 1;
-    const category = data.category.find(c => c.id === categoryId);
+    const model = req.model;
     
-    res.status(200).json({category});
+    const category = model.find({id: categoryId}, (err, category) => {
+        if (category.length == 0) {
+            res.status(200).send('Category not found');
+        }
+        else {
+            res.status(200).json({ category });
+        }
+           
+    });
 };

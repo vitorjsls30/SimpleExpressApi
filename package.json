@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/vitorjsls30/SimpleExpressApi#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.19"
   },
   "devDependencies": {
     "nodemon": "^1.9.2"
