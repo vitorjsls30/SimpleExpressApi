@@ -19,22 +19,14 @@ function hasModel(model) {
     }
 }
 
-//categories.param('categoryId', findObject('category'));
-
 categories.use(function(req, res, next) {
     next();
 });
 
 categories.get('/', all);
 
-categories.use('/:categoryId/texts', texts);
-
-categories.use('/:categoryId/photos', photos);
-
-categories.get('/:categoryId', hasModel(categoryModel), single);
-
 categories.post('/', (req, res) => {
-    var category = new Category();
+    var category = new categoryModel();
     category.id = req.body.id;
     category.name = req.body.name;
     
@@ -46,5 +38,32 @@ categories.post('/', (req, res) => {
        res.json('Category Created!');
     }); 
 });
+
+categories.use('/:categoryId/texts', texts);
+
+categories.use('/:categoryId/photos', photos);
+
+categories.get('/:categoryId', hasModel(categoryModel), single)
+    .put('/:categoryId', (req, res) => {
+        var categoryId = req.params.categoryId * 1;
+        categoryModel.find({ id: categoryId }, (err, categories) => {
+            if (err) {
+                res.send(err);
+            }
+
+            var category = categories[0];
+            category.name = req.body.name;
+
+            category.save(function (err) {
+                if (err) {
+                    res.send(err);
+                }
+                res.json({ message: 'Category updated!' });
+            });
+        });
+    });
+
+
+
 
 module.exports = categories;
