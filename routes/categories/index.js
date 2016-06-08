@@ -24,7 +24,7 @@ categories.use(function (req, res, next) {
 });
 
 categories.route('/')
-    .get(all)
+    .get(hasModel(categoryModel), all)
 
     .post((req, res) => {
         var category = new categoryModel();
