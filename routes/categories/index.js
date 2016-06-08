@@ -19,14 +19,14 @@ function hasModel(model) {
     }
 }
 
-categories.use(function(req, res, next) {
+categories.use(function (req, res, next) {
     next();
 });
 
 categories.route('/')
-    .get('/', all)
+    .get(all)
 
-    .post('/', (req, res) => {
+    .post((req, res) => {
         var category = new categoryModel();
         category.id = req.body.id;
         category.name = req.body.name;
@@ -74,8 +74,5 @@ categories.route('/:categoryId')
             res.send('Category removed!');
         });
     });
-
-
-
 
 module.exports = categories;
