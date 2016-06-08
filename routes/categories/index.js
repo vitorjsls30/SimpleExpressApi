@@ -23,30 +23,32 @@ categories.use(function(req, res, next) {
     next();
 });
 
-categories.get('/', all);
+categories.route('/')
+    .get('/', all)
 
-categories.post('/', (req, res) => {
-    var category = new categoryModel();
-    category.id = req.body.id;
-    category.name = req.body.name;
-    
-    category.save(function(err) {
-       if(err) {
-           res.send(err);
-       }
-       
-       res.json('Category Created!');
-    }); 
-});
+    .post('/', (req, res) => {
+        var category = new categoryModel();
+        category.id = req.body.id;
+        category.name = req.body.name;
+
+        category.save(function (err) {
+            if (err) {
+                res.send(err);
+            }
+
+            res.json('Category Created!');
+        });
+    });
 
 categories.use('/:categoryId/texts', texts);
 
 categories.use('/:categoryId/photos', photos);
 
-categories.get('/:categoryId', hasModel(categoryModel), single)
-    .put('/:categoryId', (req, res) => {
-        var categoryId = req.params.categoryId * 1;
-        categoryModel.find({ id: categoryId }, (err, categories) => {
+categories.route('/:categoryId')
+    .get(hasModel(categoryModel), single)
+
+    .put((req, res) => {
+        categoryModel.find({ id: req.params.categoryId }, (err, categories) => {
             if (err) {
                 res.send(err);
             }
@@ -60,6 +62,16 @@ categories.get('/:categoryId', hasModel(categoryModel), single)
                 }
                 res.json({ message: 'Category updated!' });
             });
+        });
+    })
+
+    .delete((req, res) => {
+        categoryModel.remove({ id: req.params.categoryId }, (err, categories) => {
+            if (err) {
+                res.send(err);
+            }
+
+            res.send('Category removed!');
         });
     });
 
