@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var photoSchema = new Schema({
     id: Number,
-    categorId: Number,
+    categoryId: Number,
     name: String
 });
 
