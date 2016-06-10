@@ -4,7 +4,6 @@ const all = require('./all');
 const single = require('./single');
 const photos = require('./photos');
 const texts = require('./texts');
-const findObject = require('../../utils/findObject');
 const hasModel = require('../../utils/modelVerifyer');
 
 categories.use(function (req, res, next) {
@@ -19,12 +18,21 @@ categories.route('/')
         category.id = req.body.id;
         category.name = req.body.name;
 
-        category.save(function (err) {
+        category.save( (err) => {
             if (err) {
                 res.send(err);
             }
 
             res.json('Category Created!');
+        });
+    })
+
+    .delete((req, res) => {
+        categoryModel.remove((err, categories) => {
+            if(err) {
+                res.send(err);
+            }
+            res.json('Categories removed sucessfully!');
         });
     });
 
@@ -59,7 +67,7 @@ categories.route('/:categoryId')
                 res.send(err);
             }
 
-            res.send('Category removed!');
+            res.json('Category removed!');
         });
     });
 

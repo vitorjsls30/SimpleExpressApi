@@ -2,7 +2,6 @@ const photos = require('express').Router();
 const photoModel = require('../../models/photo');
 const all = require('./all');
 const single = require('./single');
-const findObject = require('../../utils/findObject');
 const hasModel = require('../../utils/modelVerifyer');
 
 photos.use(function(req, res, next) {
@@ -31,7 +30,7 @@ photos.route('/')
             if(err) {
                 res.send(err);
             }
-            res.json('Photos removed!');
+            res.json('Photos removed sucessfully!');
         });
     });
 
@@ -58,7 +57,7 @@ photos.route('/:photoId')
     })
 
     .delete((req, res) => {
-        photoModel.remove({ id: req.params.photoId }, (err, photo) => {
+        photoModel.remove({ id: req.params.photoId }, (err, photos) => {
             if (err) {
                 res.send(err);
             }

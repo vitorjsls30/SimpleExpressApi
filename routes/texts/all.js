@@ -1,7 +1,8 @@
-const data = require('../../data.json');
-
 module.exports = (req, res) => {
-    const texts = data.texts;
-
-    res.status(200).json({texts});
+    req.model.find((err, texts) => {
+        if(err) {
+            res.send(err);
+        }
+        res.json(texts);
+    });
 };
