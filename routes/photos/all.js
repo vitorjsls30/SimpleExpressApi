@@ -1,8 +1,10 @@
 module.exports = (req, res) => {
     req.model.find((err, photos) => {
-        if(err) {
+        if (err) {
             res.send(err);
         }
-        res.status(200).json({photos});
+        else {
+            res.status(200).json({ photos });
+        }
     });
 };

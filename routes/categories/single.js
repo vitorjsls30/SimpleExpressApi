@@ -1,11 +1,10 @@
 module.exports = (req, res) => {
-    req.model.find({id: req.params.categoryId}, (err, category) => {
-        if (category.length == 0) {
-            res.status(200).send('Category not found');
+    req.model.find({ id: req.params.categoryId }, (err, category) => {
+        if (err) {
+            res.json(err);
         }
         else {
             res.status(200).json({ category });
         }
-           
     });
 };

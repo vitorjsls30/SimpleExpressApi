@@ -1,10 +1,10 @@
-const data = require('../../../data.json');
-
 module.exports = (req, res) => {
-    const photos = data.photos;
-    const categoryId = req.params.categoryId * 1;
-    const photoId = req.params.photoId * 1;
-    const categorizedPhoto = photos.filter(p => p.categoryId === categoryId && p.id === photoId);
-
-    res.status(200).json({categorizedPhoto});
+    req.model.find({ id: req.params.photoId, categoryId: req.params.categoryId }, (err, photo) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.status(200).json({ photo });
+        }
+    });
 };

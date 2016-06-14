@@ -3,6 +3,8 @@ module.exports = (req, res) => {
         if (err) {
             res.send(err);
         }
-        res.status(200).json({ photo });
+        else {
+            res.status(200).json({ photo });
+        }
     });
 };
